@@ -1,0 +1,3365 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10500.18.0404.1406                               -->
+<workbook source-build='10.5.3 (10500.18.0404.1406)' source-platform='mac' version='10.5' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <repository-location id='Titanicfinal_2' path='/workbooks' revision='1.1' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='titanic-data' inline='true' name='federated.0atlhxx18you8318wvf8z1qeay4l' version='10.5'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='titanic-data' name='textscan.13xr5wi1c1b4i012x45780dwbyfb'>
+            <connection class='textscan' directory='/Users/amy/Desktop/Tableau' filename='titanic-data.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.13xr5wi1c1b4i012x45780dwbyfb' name='titanic-data.csv' table='[titanic-data#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='zh_Hant_HK' separator=','>
+            <column datatype='integer' name='PassengerId' ordinal='0' />
+            <column datatype='integer' name='Survived' ordinal='1' />
+            <column datatype='integer' name='Pclass' ordinal='2' />
+            <column datatype='string' name='Name' ordinal='3' />
+            <column datatype='string' name='Sex' ordinal='4' />
+            <column datatype='real' name='Age' ordinal='5' />
+            <column datatype='integer' name='SibSp' ordinal='6' />
+            <column datatype='integer' name='Parch' ordinal='7' />
+            <column datatype='string' name='Ticket' ordinal='8' />
+            <column datatype='real' name='Fare' ordinal='9' />
+            <column datatype='string' name='Cabin' ordinal='10' />
+            <column datatype='string' name='Embarked' ordinal='11' />
+          </columns>
+        </relation>
+        <refresh incremental-updates='' />
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[titanic-data.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;zh_Hans_CN&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;zh_Hant_HK&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PassengerId</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[PassengerId]</local-name>
+            <parent-name>[titanic-data.csv]</parent-name>
+            <remote-alias>PassengerId</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Survived</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Survived]</local-name>
+            <parent-name>[titanic-data.csv]</parent-name>
+            <remote-alias>Survived</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Pclass</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Pclass]</local-name>
+            <parent-name>[titanic-data.csv]</parent-name>
+            <remote-alias>Pclass</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Name]</local-name>
+            <parent-name>[titanic-data.csv]</parent-name>
+            <remote-alias>Name</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LZH_RCN' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sex</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Sex]</local-name>
+            <parent-name>[titanic-data.csv]</parent-name>
+            <remote-alias>Sex</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LZH_RCN' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Age</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Age]</local-name>
+            <parent-name>[titanic-data.csv]</parent-name>
+            <remote-alias>Age</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SibSp</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[SibSp]</local-name>
+            <parent-name>[titanic-data.csv]</parent-name>
+            <remote-alias>SibSp</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Parch</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Parch]</local-name>
+            <parent-name>[titanic-data.csv]</parent-name>
+            <remote-alias>Parch</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Ticket</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Ticket]</local-name>
+            <parent-name>[titanic-data.csv]</parent-name>
+            <remote-alias>Ticket</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LZH_RCN' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Fare</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Fare]</local-name>
+            <parent-name>[titanic-data.csv]</parent-name>
+            <remote-alias>Fare</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Cabin</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Cabin]</local-name>
+            <parent-name>[titanic-data.csv]</parent-name>
+            <remote-alias>Cabin</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LZH_RCN' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Embarked</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Embarked]</local-name>
+            <parent-name>[titanic-data.csv]</parent-name>
+            <remote-alias>Embarked</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LZH_RCN' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='string' name='[Age (group)]' role='dimension' type='nominal'>
+        <calculation class='categorical-bin' column='[Age]' new-bin='true'>
+          <bin default-name='false' value='&quot;0~10&quot;'>
+            <value>0.41999999999999998</value>
+            <value>0.67000000000000004</value>
+            <value>0.75</value>
+            <value>0.82999999999999996</value>
+            <value>0.92000000000000004</value>
+            <value>1.0</value>
+            <value>2.0</value>
+            <value>3.0</value>
+            <value>4.0</value>
+            <value>5.0</value>
+            <value>6.0</value>
+            <value>7.0</value>
+            <value>8.0</value>
+            <value>9.0</value>
+            <value>10.0</value>
+          </bin>
+          <bin default-name='false' value='&quot;&gt;10~20&quot;'>
+            <value>11.0</value>
+            <value>12.0</value>
+            <value>13.0</value>
+            <value>14.0</value>
+            <value>14.5</value>
+            <value>15.0</value>
+            <value>16.0</value>
+            <value>17.0</value>
+            <value>18.0</value>
+            <value>19.0</value>
+            <value>20.0</value>
+          </bin>
+          <bin default-name='false' value='&quot;&gt;20~30&quot;'>
+            <value>20.5</value>
+            <value>21.0</value>
+            <value>22.0</value>
+            <value>23.0</value>
+            <value>23.5</value>
+            <value>24.0</value>
+            <value>24.5</value>
+            <value>25.0</value>
+            <value>26.0</value>
+            <value>27.0</value>
+            <value>28.0</value>
+            <value>28.5</value>
+            <value>29.0</value>
+            <value>30.0</value>
+          </bin>
+          <bin default-name='false' value='&quot;&gt;30~40&quot;'>
+            <value>30.5</value>
+            <value>31.0</value>
+            <value>32.0</value>
+            <value>32.5</value>
+            <value>33.0</value>
+            <value>34.0</value>
+            <value>34.5</value>
+            <value>35.0</value>
+            <value>36.0</value>
+            <value>36.5</value>
+            <value>37.0</value>
+            <value>38.0</value>
+            <value>39.0</value>
+            <value>40.0</value>
+          </bin>
+          <bin default-name='false' value='&quot;&gt;40~50&quot;'>
+            <value>40.5</value>
+            <value>41.0</value>
+            <value>42.0</value>
+            <value>43.0</value>
+            <value>44.0</value>
+            <value>45.0</value>
+            <value>45.5</value>
+            <value>46.0</value>
+            <value>47.0</value>
+            <value>48.0</value>
+            <value>49.0</value>
+            <value>50.0</value>
+          </bin>
+          <bin default-name='false' value='&quot;&gt;50~60&quot;'>
+            <value>51.0</value>
+            <value>52.0</value>
+            <value>53.0</value>
+            <value>54.0</value>
+            <value>55.0</value>
+            <value>55.5</value>
+            <value>56.0</value>
+            <value>57.0</value>
+            <value>58.0</value>
+            <value>59.0</value>
+            <value>60.0</value>
+          </bin>
+          <bin default-name='false' value='&quot;&gt;60&quot;'>
+            <value>61.0</value>
+            <value>62.0</value>
+            <value>63.0</value>
+            <value>64.0</value>
+            <value>65.0</value>
+            <value>66.0</value>
+            <value>70.0</value>
+            <value>70.5</value>
+            <value>71.0</value>
+            <value>74.0</value>
+            <value>80.0</value>
+          </bin>
+        </calculation>
+      </column>
+      <column datatype='real' name='[Age]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='integer' name='[PassengerId]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[Pclass]' role='measure' type='quantitative' />
+      <column datatype='string' name='[Sex]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Survived]' role='measure' type='quantitative'>
+        <aliases>
+          <alias key='0' value='Not Survival' />
+          <alias key='1' value='Survival' />
+        </aliases>
+      </column>
+      <column-instance column='[Number of Records]' derivation='Count' name='[cnt:Number of Records:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Survived]' derivation='Count' name='[cnt:Survived:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Number of Records]' derivation='None' name='[none:Number of Records:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Pclass]' derivation='None' name='[none:Pclass:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[Sex]' derivation='None' name='[none:Sex:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Survived]' derivation='None' name='[none:Survived:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[Survived]' derivation='Sum' name='[pcdf:sum:Survived:qk:1]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-field='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' ordering-type='Field' type='PctDiff'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcdf:sum:Survived:qk:2]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='CellInPane' type='PctDiff'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcdf:sum:Survived:qk:4]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Field' type='PctDiff'>
+          <order field='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' />
+          <order field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Survived]' />
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcdf:sum:Survived:qk:5]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Survived]' ordering-type='Field' type='PctDiff'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcdf:sum:Survived:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='PctDiff'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:11]' pivot='key' type='quantitative'>
+        <table-calc ordering-field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Survived]' ordering-type='Field' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:2]' pivot='key' type='quantitative'>
+        <table-calc ordering-field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Sex]' ordering-type='Field' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:3]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Columns' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:4]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='CellInPane' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:6]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Table' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:8]' pivot='key' type='quantitative'>
+        <table-calc ordering-field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Pclass]' ordering-type='Field' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:9]' pivot='key' type='quantitative'>
+        <table-calc ordering-field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]' ordering-type='Field' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Rows' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcto:sum:Survived:qk:10]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Columns' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcto:sum:Survived:qk:11]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Field' type='PctTotal'>
+          <order field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Sex]' />
+          <order field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Survived]' />
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcto:sum:Survived:qk:12]' pivot='key' type='quantitative'>
+        <table-calc level-address='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' ordering-type='Field' type='PctTotal'>
+          <order field='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' />
+          <order field='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]' />
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcto:sum:Survived:qk:13]' pivot='key' type='quantitative'>
+        <table-calc level-address='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]' ordering-type='Field' type='PctTotal'>
+          <order field='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' />
+          <order field='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]' />
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcto:sum:Survived:qk:14]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Field' type='PctTotal'>
+          <order field='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' />
+          <order field='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]' />
+          <sort direction='ASC' using='[federated.0atlhxx18you8318wvf8z1qeay4l].[sum:Age:qk]' />
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcto:sum:Survived:qk:1]' pivot='key' type='quantitative'>
+        <table-calc ordering-field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]' ordering-type='Field' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcto:sum:Survived:qk:2]' pivot='key' type='quantitative'>
+        <table-calc ordering-field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Pclass]' ordering-type='Field' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcto:sum:Survived:qk:3]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Field' type='PctTotal'>
+          <order field='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' />
+          <order field='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]' />
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcto:sum:Survived:qk:4]' pivot='key' type='quantitative'>
+        <table-calc ordering-field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Survived]' ordering-type='Field' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcto:sum:Survived:qk:6]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Field' type='PctTotal'>
+          <order field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Survived]' />
+          <order field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Sex]' />
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcto:sum:Survived:qk:7]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='CellInPane' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcto:sum:Survived:qk:9]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Table' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcto:sum:Survived:qk]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Rows' type='PctTotal' />
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcva:sum:Survived:qk:2]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='CellInPane' type='PctValue'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcva:sum:Survived:qk:3]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-field='' ordering-type='Field' type='PctValue'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Survived]' derivation='Sum' name='[pcva:sum:Survived:qk]' pivot='key' type='quantitative'>
+        <table-calc diff-options='Relative' ordering-type='Rows' type='PctValue'>
+          <address>
+            <value>-1</value>
+          </address>
+        </table-calc>
+      </column-instance>
+      <column-instance column='[Number of Records]' derivation='Sum' name='[rank:sum:Number of Records:qk]' pivot='key' type='quantitative'>
+        <table-calc ordering-type='Rows' rank-options='Competition,Descending' type='Rank' />
+      </column-instance>
+      <column-instance column='[Age]' derivation='Sum' name='[sum:Age:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+      <group hidden='true' name='[Exclusions (Age (group),Pclass,Survived)]' name-style='unqualified' user:auto-column='exclude'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Age (group)]' />
+          <groupfilter function='level-members' level='[none:Pclass:ok]' />
+          <groupfilter function='level-members' level='[none:Survived:ok]' />
+        </groupfilter>
+      </group>
+      <group hidden='true' name='[Exclusions (Age (group),Sex,Survived)]' name-style='unqualified' user:auto-column='exclude'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Age (group)]' />
+          <groupfilter function='level-members' level='[none:Sex:nk]' />
+          <groupfilter function='level-members' level='[none:Survived:ok]' />
+        </groupfilter>
+      </group>
+      <group hidden='true' name='[Exclusions (Age (group),Survived)]' name-style='unqualified' user:auto-column='exclude'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Age (group)]' />
+          <groupfilter function='level-members' level='[none:Survived:ok]' />
+        </groupfilter>
+      </group>
+      <extract count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='/Users/amy/Documents/My Tableau Repository/Datasources/titanic-data.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='04/28/2018 08:46:16 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <calculations>
+            <calculation column='[Number of Records]' formula='1' />
+          </calculations>
+          <refresh incremental-updates=''>
+            <refresh-event add-from-file-path='' increment-value='%null%' refresh-type='create' rows-inserted='891' timestamp-start='2018-04-28 20:46:16.342' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>PassengerId</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[PassengerId]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>PassengerId</remote-alias>
+              <ordinal>0</ordinal>
+              <family>titanic-data.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>891</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Survived</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Survived]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Survived</remote-alias>
+              <ordinal>1</ordinal>
+              <family>titanic-data.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Pclass</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Pclass]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Pclass</remote-alias>
+              <ordinal>2</ordinal>
+              <family>titanic-data.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Name]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Name</remote-alias>
+              <ordinal>3</ordinal>
+              <family>titanic-data.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>891</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LZH_RCN' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Sex</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Sex]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Sex</remote-alias>
+              <ordinal>4</ordinal>
+              <family>titanic-data.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LZH_RCN' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Age</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Age]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Age</remote-alias>
+              <ordinal>5</ordinal>
+              <family>titanic-data.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>89</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>SibSp</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[SibSp]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>SibSp</remote-alias>
+              <ordinal>6</ordinal>
+              <family>titanic-data.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Parch</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Parch]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Parch</remote-alias>
+              <ordinal>7</ordinal>
+              <family>titanic-data.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Ticket</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Ticket]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Ticket</remote-alias>
+              <ordinal>8</ordinal>
+              <family>titanic-data.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>891</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LZH_RCN' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Fare</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Fare]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Fare</remote-alias>
+              <ordinal>9</ordinal>
+              <family>titanic-data.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>256</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Cabin</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Cabin]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Cabin</remote-alias>
+              <ordinal>10</ordinal>
+              <family>titanic-data.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>148</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LZH_RCN' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Embarked</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Embarked]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Embarked</remote-alias>
+              <ordinal>11</ordinal>
+              <family>titanic-data.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LZH_RCN' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Number of Records</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Number of Records]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Number of Records</remote-alias>
+              <ordinal>12</ordinal>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+        <aggregation column='[Age]' derivation='Sum' />
+        <aggregation column='[Cabin]' derivation='None' />
+        <aggregation column='[Embarked]' derivation='None' />
+        <aggregation column='[Fare]' derivation='Sum' />
+        <aggregation column='[Name]' derivation='None' />
+        <aggregation column='[Number of Records]' derivation='Sum' />
+        <aggregation column='[Parch]' derivation='Sum' />
+        <aggregation column='[PassengerId]' derivation='None' />
+        <aggregation column='[Pclass]' derivation='Sum' />
+        <aggregation column='[Sex]' derivation='None' />
+        <aggregation column='[SibSp]' derivation='Sum' />
+        <aggregation column='[Survived]' derivation='Sum' />
+        <aggregation column='[Ticket]' derivation='None' />
+      </extract>
+      <layout dim-ordering='alphabetic' dim-percentage='0.500829' measure-ordering='alphabetic' measure-percentage='0.499171' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcdf:sum:Survived:qk:1]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcdf:sum:Survived:qk:2]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcdf:sum:Survived:qk:4]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcdf:sum:Survived:qk:5]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcdf:sum:Survived:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:11]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:2]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:3]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:4]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:6]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:8]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:9]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Survived:qk:1]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Survived:qk:10]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Survived:qk:11]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Survived:qk:12]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Survived:qk:13]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Survived:qk:14]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Survived:qk:2]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Survived:qk:3]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Survived:qk:4]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Survived:qk:6]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Survived:qk:7]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Survived:qk:9]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Survived:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcva:sum:Survived:qk:2]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcva:sum:Survived:qk:3]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[pcva:sum:Survived:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[rank:sum:Number of Records:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[usr:Calculation1:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[usr:Calculation2:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[sum:Number of Records:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[cnt:Number of Records:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[cnt:Survived:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Number of Records:qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Sex:nk]&#10;[:Measure Names]' type='palette'>
+            <map-pri to='multiordinal_blue_10_0'>
+              <bucket>&quot;female&quot;</bucket>
+            </map-pri>
+            <map-pri to='multiordinal_orange_10_0'>
+              <bucket>&quot;male&quot;</bucket>
+            </map-pri>
+          </encoding>
+          <encoding attr='color' field='[Age (group)]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>%null%</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;&gt;30~40&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;&gt;20~30&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;&gt;50~60&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;&gt;10~20&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;&gt;40~50&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;0~10&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;&gt;60&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Survived:ok]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>0</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>1</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Sex:nk]' type='palette'>
+            <map to='#b07aa1'>
+              <bucket>&quot;male&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;female&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Hong Kong&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='年龄分布'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='titanic-data' name='federated.0atlhxx18you8318wvf8z1qeay4l' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0atlhxx18you8318wvf8z1qeay4l'>
+            <column datatype='string' name='[Age (group)]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[Age]' new-bin='true'>
+                <bin default-name='false' value='&quot;0~10&quot;'>
+                  <value>0.41999999999999998</value>
+                  <value>0.67000000000000004</value>
+                  <value>0.75</value>
+                  <value>0.82999999999999996</value>
+                  <value>0.92000000000000004</value>
+                  <value>1.0</value>
+                  <value>2.0</value>
+                  <value>3.0</value>
+                  <value>4.0</value>
+                  <value>5.0</value>
+                  <value>6.0</value>
+                  <value>7.0</value>
+                  <value>8.0</value>
+                  <value>9.0</value>
+                  <value>10.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;10~20&quot;'>
+                  <value>11.0</value>
+                  <value>12.0</value>
+                  <value>13.0</value>
+                  <value>14.0</value>
+                  <value>14.5</value>
+                  <value>15.0</value>
+                  <value>16.0</value>
+                  <value>17.0</value>
+                  <value>18.0</value>
+                  <value>19.0</value>
+                  <value>20.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;20~30&quot;'>
+                  <value>20.5</value>
+                  <value>21.0</value>
+                  <value>22.0</value>
+                  <value>23.0</value>
+                  <value>23.5</value>
+                  <value>24.0</value>
+                  <value>24.5</value>
+                  <value>25.0</value>
+                  <value>26.0</value>
+                  <value>27.0</value>
+                  <value>28.0</value>
+                  <value>28.5</value>
+                  <value>29.0</value>
+                  <value>30.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;30~40&quot;'>
+                  <value>30.5</value>
+                  <value>31.0</value>
+                  <value>32.0</value>
+                  <value>32.5</value>
+                  <value>33.0</value>
+                  <value>34.0</value>
+                  <value>34.5</value>
+                  <value>35.0</value>
+                  <value>36.0</value>
+                  <value>36.5</value>
+                  <value>37.0</value>
+                  <value>38.0</value>
+                  <value>39.0</value>
+                  <value>40.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;40~50&quot;'>
+                  <value>40.5</value>
+                  <value>41.0</value>
+                  <value>42.0</value>
+                  <value>43.0</value>
+                  <value>44.0</value>
+                  <value>45.0</value>
+                  <value>45.5</value>
+                  <value>46.0</value>
+                  <value>47.0</value>
+                  <value>48.0</value>
+                  <value>49.0</value>
+                  <value>50.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;50~60&quot;'>
+                  <value>51.0</value>
+                  <value>52.0</value>
+                  <value>53.0</value>
+                  <value>54.0</value>
+                  <value>55.0</value>
+                  <value>55.5</value>
+                  <value>56.0</value>
+                  <value>57.0</value>
+                  <value>58.0</value>
+                  <value>59.0</value>
+                  <value>60.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;60&quot;'>
+                  <value>61.0</value>
+                  <value>62.0</value>
+                  <value>63.0</value>
+                  <value>64.0</value>
+                  <value>65.0</value>
+                  <value>66.0</value>
+                  <value>70.0</value>
+                  <value>70.5</value>
+                  <value>71.0</value>
+                  <value>74.0</value>
+                  <value>80.0</value>
+                </bin>
+              </calculation>
+            </column>
+            <column datatype='real' name='[Age]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:9]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]' ordering-type='Field' type='PctTotal' />
+            </column-instance>
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[Age (group)]' />
+              <groupfilter function='member' level='[Age (group)]' member='%null%' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:9]' value='p0%' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]' />
+              <text column='[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:9]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0atlhxx18you8318wvf8z1qeay4l].[sum:Number of Records:qk]</rows>
+        <cols>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='年龄性别等级分布'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='titanic-data' name='federated.0atlhxx18you8318wvf8z1qeay4l' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0atlhxx18you8318wvf8z1qeay4l'>
+            <column datatype='string' name='[Age (group)]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[Age]' new-bin='true'>
+                <bin default-name='false' value='&quot;0~10&quot;'>
+                  <value>0.41999999999999998</value>
+                  <value>0.67000000000000004</value>
+                  <value>0.75</value>
+                  <value>0.82999999999999996</value>
+                  <value>0.92000000000000004</value>
+                  <value>1.0</value>
+                  <value>2.0</value>
+                  <value>3.0</value>
+                  <value>4.0</value>
+                  <value>5.0</value>
+                  <value>6.0</value>
+                  <value>7.0</value>
+                  <value>8.0</value>
+                  <value>9.0</value>
+                  <value>10.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;10~20&quot;'>
+                  <value>11.0</value>
+                  <value>12.0</value>
+                  <value>13.0</value>
+                  <value>14.0</value>
+                  <value>14.5</value>
+                  <value>15.0</value>
+                  <value>16.0</value>
+                  <value>17.0</value>
+                  <value>18.0</value>
+                  <value>19.0</value>
+                  <value>20.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;20~30&quot;'>
+                  <value>20.5</value>
+                  <value>21.0</value>
+                  <value>22.0</value>
+                  <value>23.0</value>
+                  <value>23.5</value>
+                  <value>24.0</value>
+                  <value>24.5</value>
+                  <value>25.0</value>
+                  <value>26.0</value>
+                  <value>27.0</value>
+                  <value>28.0</value>
+                  <value>28.5</value>
+                  <value>29.0</value>
+                  <value>30.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;30~40&quot;'>
+                  <value>30.5</value>
+                  <value>31.0</value>
+                  <value>32.0</value>
+                  <value>32.5</value>
+                  <value>33.0</value>
+                  <value>34.0</value>
+                  <value>34.5</value>
+                  <value>35.0</value>
+                  <value>36.0</value>
+                  <value>36.5</value>
+                  <value>37.0</value>
+                  <value>38.0</value>
+                  <value>39.0</value>
+                  <value>40.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;40~50&quot;'>
+                  <value>40.5</value>
+                  <value>41.0</value>
+                  <value>42.0</value>
+                  <value>43.0</value>
+                  <value>44.0</value>
+                  <value>45.0</value>
+                  <value>45.5</value>
+                  <value>46.0</value>
+                  <value>47.0</value>
+                  <value>48.0</value>
+                  <value>49.0</value>
+                  <value>50.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;50~60&quot;'>
+                  <value>51.0</value>
+                  <value>52.0</value>
+                  <value>53.0</value>
+                  <value>54.0</value>
+                  <value>55.0</value>
+                  <value>55.5</value>
+                  <value>56.0</value>
+                  <value>57.0</value>
+                  <value>58.0</value>
+                  <value>59.0</value>
+                  <value>60.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;60&quot;'>
+                  <value>61.0</value>
+                  <value>62.0</value>
+                  <value>63.0</value>
+                  <value>64.0</value>
+                  <value>65.0</value>
+                  <value>66.0</value>
+                  <value>70.0</value>
+                  <value>70.5</value>
+                  <value>71.0</value>
+                  <value>74.0</value>
+                  <value>80.0</value>
+                </bin>
+              </calculation>
+            </column>
+            <column datatype='real' name='[Age]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Pclass]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Sex]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Survived]' role='measure' type='quantitative'>
+              <aliases>
+                <alias key='0' value='Not Survival' />
+                <alias key='1' value='Survival' />
+              </aliases>
+            </column>
+            <column-instance column='[Survived]' derivation='Count' name='[cnt:Survived:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Pclass]' derivation='None' name='[none:Pclass:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Sex]' derivation='None' name='[none:Sex:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Survived]' derivation='None' name='[none:Survived:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0atlhxx18you8318wvf8z1qeay4l].[Exclusions (Age (group),Pclass,Survived)]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='crossjoin'>
+                <groupfilter function='level-members' level='[Age (group)]' />
+                <groupfilter function='level-members' level='[none:Pclass:ok]' />
+                <groupfilter function='level-members' level='[none:Survived:ok]' />
+              </groupfilter>
+              <groupfilter function='reorder-dimensionality'>
+                <groupfilter function='crossjoin'>
+                  <groupfilter function='member' level='[Age (group)]' member='%null%' />
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='union'>
+                      <groupfilter function='member' level='[none:Survived:ok]' member='0' />
+                      <groupfilter function='member' level='[none:Survived:ok]' member='1' />
+                    </groupfilter>
+                    <groupfilter function='union'>
+                      <groupfilter function='member' level='[none:Pclass:ok]' member='1' />
+                      <groupfilter function='member' level='[none:Pclass:ok]' member='2' />
+                      <groupfilter function='member' level='[none:Pclass:ok]' member='3' />
+                    </groupfilter>
+                  </groupfilter>
+                </groupfilter>
+                <order>
+                  <hierarchy name='[Age (group)]' />
+                  <hierarchy name='[none:Pclass:ok]' />
+                  <hierarchy name='[none:Survived:ok]' />
+                </order>
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]'>
+            <groupfilter function='level-members' level='[none:Sex:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <sort class='manual' column='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]' direction='ASC'>
+            <dictionary>
+              <bucket>1</bucket>
+              <bucket>0</bucket>
+            </dictionary>
+          </sort>
+          <slices>
+            <column>[federated.0atlhxx18you8318wvf8z1qeay4l].[Exclusions (Age (group),Pclass,Survived)]</column>
+            <column>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok] * [federated.0atlhxx18you8318wvf8z1qeay4l].[cnt:Survived:qk])</rows>
+        <cols>([federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok] / [federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)])</cols>
+      </table>
+    </worksheet>
+    <worksheet name='年龄生还'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='titanic-data' name='federated.0atlhxx18you8318wvf8z1qeay4l' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0atlhxx18you8318wvf8z1qeay4l'>
+            <column datatype='string' name='[Age (group)]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[Age]' new-bin='true'>
+                <bin default-name='false' value='&quot;0~10&quot;'>
+                  <value>0.41999999999999998</value>
+                  <value>0.67000000000000004</value>
+                  <value>0.75</value>
+                  <value>0.82999999999999996</value>
+                  <value>0.92000000000000004</value>
+                  <value>1.0</value>
+                  <value>2.0</value>
+                  <value>3.0</value>
+                  <value>4.0</value>
+                  <value>5.0</value>
+                  <value>6.0</value>
+                  <value>7.0</value>
+                  <value>8.0</value>
+                  <value>9.0</value>
+                  <value>10.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;10~20&quot;'>
+                  <value>11.0</value>
+                  <value>12.0</value>
+                  <value>13.0</value>
+                  <value>14.0</value>
+                  <value>14.5</value>
+                  <value>15.0</value>
+                  <value>16.0</value>
+                  <value>17.0</value>
+                  <value>18.0</value>
+                  <value>19.0</value>
+                  <value>20.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;20~30&quot;'>
+                  <value>20.5</value>
+                  <value>21.0</value>
+                  <value>22.0</value>
+                  <value>23.0</value>
+                  <value>23.5</value>
+                  <value>24.0</value>
+                  <value>24.5</value>
+                  <value>25.0</value>
+                  <value>26.0</value>
+                  <value>27.0</value>
+                  <value>28.0</value>
+                  <value>28.5</value>
+                  <value>29.0</value>
+                  <value>30.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;30~40&quot;'>
+                  <value>30.5</value>
+                  <value>31.0</value>
+                  <value>32.0</value>
+                  <value>32.5</value>
+                  <value>33.0</value>
+                  <value>34.0</value>
+                  <value>34.5</value>
+                  <value>35.0</value>
+                  <value>36.0</value>
+                  <value>36.5</value>
+                  <value>37.0</value>
+                  <value>38.0</value>
+                  <value>39.0</value>
+                  <value>40.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;40~50&quot;'>
+                  <value>40.5</value>
+                  <value>41.0</value>
+                  <value>42.0</value>
+                  <value>43.0</value>
+                  <value>44.0</value>
+                  <value>45.0</value>
+                  <value>45.5</value>
+                  <value>46.0</value>
+                  <value>47.0</value>
+                  <value>48.0</value>
+                  <value>49.0</value>
+                  <value>50.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;50~60&quot;'>
+                  <value>51.0</value>
+                  <value>52.0</value>
+                  <value>53.0</value>
+                  <value>54.0</value>
+                  <value>55.0</value>
+                  <value>55.5</value>
+                  <value>56.0</value>
+                  <value>57.0</value>
+                  <value>58.0</value>
+                  <value>59.0</value>
+                  <value>60.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;60&quot;'>
+                  <value>61.0</value>
+                  <value>62.0</value>
+                  <value>63.0</value>
+                  <value>64.0</value>
+                  <value>65.0</value>
+                  <value>66.0</value>
+                  <value>70.0</value>
+                  <value>70.5</value>
+                  <value>71.0</value>
+                  <value>74.0</value>
+                  <value>80.0</value>
+                </bin>
+              </calculation>
+            </column>
+            <column datatype='real' name='[Age]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column datatype='integer' name='[Survived]' role='measure' type='quantitative'>
+              <aliases>
+                <alias key='0' value='Not Survival' />
+                <alias key='1' value='Survival' />
+              </aliases>
+            </column>
+            <column-instance column='[Survived]' derivation='Count' name='[cnt:Survived:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Survived]' derivation='None' name='[none:Survived:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:9]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]' ordering-type='Field' type='PctTotal' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0atlhxx18you8318wvf8z1qeay4l].[Exclusions (Age (group),Survived)]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='crossjoin'>
+                <groupfilter function='level-members' level='[Age (group)]' />
+                <groupfilter function='level-members' level='[none:Survived:ok]' />
+              </groupfilter>
+              <groupfilter function='crossjoin'>
+                <groupfilter function='member' level='[Age (group)]' member='%null%' />
+                <groupfilter function='union'>
+                  <groupfilter function='member' level='[none:Survived:ok]' member='0' />
+                  <groupfilter function='member' level='[none:Survived:ok]' member='1' />
+                </groupfilter>
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <sort class='manual' column='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]' direction='ASC'>
+            <dictionary>
+              <bucket>1</bucket>
+              <bucket>0</bucket>
+            </dictionary>
+          </sort>
+          <slices>
+            <column>[federated.0atlhxx18you8318wvf8z1qeay4l].[Exclusions (Age (group),Survived)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:9]' value='p0%' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]' />
+              <text column='[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:9]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok] * [federated.0atlhxx18you8318wvf8z1qeay4l].[cnt:Survived:qk])</rows>
+        <cols>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='年龄等级生还'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='titanic-data' name='federated.0atlhxx18you8318wvf8z1qeay4l' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0atlhxx18you8318wvf8z1qeay4l'>
+            <column datatype='string' name='[Age (group)]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[Age]' new-bin='true'>
+                <bin default-name='false' value='&quot;0~10&quot;'>
+                  <value>0.41999999999999998</value>
+                  <value>0.67000000000000004</value>
+                  <value>0.75</value>
+                  <value>0.82999999999999996</value>
+                  <value>0.92000000000000004</value>
+                  <value>1.0</value>
+                  <value>2.0</value>
+                  <value>3.0</value>
+                  <value>4.0</value>
+                  <value>5.0</value>
+                  <value>6.0</value>
+                  <value>7.0</value>
+                  <value>8.0</value>
+                  <value>9.0</value>
+                  <value>10.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;10~20&quot;'>
+                  <value>11.0</value>
+                  <value>12.0</value>
+                  <value>13.0</value>
+                  <value>14.0</value>
+                  <value>14.5</value>
+                  <value>15.0</value>
+                  <value>16.0</value>
+                  <value>17.0</value>
+                  <value>18.0</value>
+                  <value>19.0</value>
+                  <value>20.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;20~30&quot;'>
+                  <value>20.5</value>
+                  <value>21.0</value>
+                  <value>22.0</value>
+                  <value>23.0</value>
+                  <value>23.5</value>
+                  <value>24.0</value>
+                  <value>24.5</value>
+                  <value>25.0</value>
+                  <value>26.0</value>
+                  <value>27.0</value>
+                  <value>28.0</value>
+                  <value>28.5</value>
+                  <value>29.0</value>
+                  <value>30.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;30~40&quot;'>
+                  <value>30.5</value>
+                  <value>31.0</value>
+                  <value>32.0</value>
+                  <value>32.5</value>
+                  <value>33.0</value>
+                  <value>34.0</value>
+                  <value>34.5</value>
+                  <value>35.0</value>
+                  <value>36.0</value>
+                  <value>36.5</value>
+                  <value>37.0</value>
+                  <value>38.0</value>
+                  <value>39.0</value>
+                  <value>40.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;40~50&quot;'>
+                  <value>40.5</value>
+                  <value>41.0</value>
+                  <value>42.0</value>
+                  <value>43.0</value>
+                  <value>44.0</value>
+                  <value>45.0</value>
+                  <value>45.5</value>
+                  <value>46.0</value>
+                  <value>47.0</value>
+                  <value>48.0</value>
+                  <value>49.0</value>
+                  <value>50.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;50~60&quot;'>
+                  <value>51.0</value>
+                  <value>52.0</value>
+                  <value>53.0</value>
+                  <value>54.0</value>
+                  <value>55.0</value>
+                  <value>55.5</value>
+                  <value>56.0</value>
+                  <value>57.0</value>
+                  <value>58.0</value>
+                  <value>59.0</value>
+                  <value>60.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;60&quot;'>
+                  <value>61.0</value>
+                  <value>62.0</value>
+                  <value>63.0</value>
+                  <value>64.0</value>
+                  <value>65.0</value>
+                  <value>66.0</value>
+                  <value>70.0</value>
+                  <value>70.5</value>
+                  <value>71.0</value>
+                  <value>74.0</value>
+                  <value>80.0</value>
+                </bin>
+              </calculation>
+            </column>
+            <column datatype='real' name='[Age]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Pclass]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Survived]' role='measure' type='quantitative'>
+              <aliases>
+                <alias key='0' value='Not Survival' />
+                <alias key='1' value='Survival' />
+              </aliases>
+            </column>
+            <column-instance column='[Pclass]' derivation='None' name='[none:Pclass:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Survived]' derivation='None' name='[none:Survived:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Survived]' derivation='Sum' name='[pcto:sum:Survived:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Pclass]' ordering-type='Field' type='PctTotal' />
+            </column-instance>
+            <column-instance column='[Pclass]' derivation='Sum' name='[sum:Pclass:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[Age (group)]' />
+              <groupfilter function='member' level='[Age (group)]' member='%null%' />
+            </groupfilter>
+          </filter>
+          <sort class='manual' column='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]' direction='ASC'>
+            <dictionary>
+              <bucket>1</bucket>
+              <bucket>0</bucket>
+            </dictionary>
+          </sort>
+          <slices>
+            <column>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Survived:qk:2]' value='p0%' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='5' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]' />
+              <text column='[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Survived:qk:2]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok] * [federated.0atlhxx18you8318wvf8z1qeay4l].[sum:Pclass:qk])</rows>
+        <cols>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='性别分布'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='titanic-data' name='federated.0atlhxx18you8318wvf8z1qeay4l' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0atlhxx18you8318wvf8z1qeay4l'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column datatype='string' name='[Sex]' role='dimension' type='nominal' />
+            <column-instance column='[Sex]' derivation='None' name='[none:Sex:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Sex]' ordering-type='Field' type='PctTotal' />
+            </column-instance>
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:2]' value='p0%' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='fill-above' id='refline0' value='#00000000' />
+            <format attr='fill-below' id='refline0' value='#00000000' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <encodings>
+              <color column='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' />
+              <wedge-size column='[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:2]' />
+              <size column='[federated.0atlhxx18you8318wvf8z1qeay4l].[sum:Number of Records:qk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+        <mark-labels>
+          <mark-label id='0' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[sum:Number of Records:qk]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;female&quot;</value>
+                <value>314</value>
+                <value>0.35241301907968575</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='1' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[sum:Number of Records:qk]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;male&quot;</value>
+                <value>577</value>
+                <value>0.6475869809203143</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+        </mark-labels>
+      </table>
+    </worksheet>
+    <worksheet name='性别年龄生还'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='titanic-data' name='federated.0atlhxx18you8318wvf8z1qeay4l' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0atlhxx18you8318wvf8z1qeay4l'>
+            <column datatype='string' name='[Age (group)]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[Age]' new-bin='true'>
+                <bin default-name='false' value='&quot;0~10&quot;'>
+                  <value>0.41999999999999998</value>
+                  <value>0.67000000000000004</value>
+                  <value>0.75</value>
+                  <value>0.82999999999999996</value>
+                  <value>0.92000000000000004</value>
+                  <value>1.0</value>
+                  <value>2.0</value>
+                  <value>3.0</value>
+                  <value>4.0</value>
+                  <value>5.0</value>
+                  <value>6.0</value>
+                  <value>7.0</value>
+                  <value>8.0</value>
+                  <value>9.0</value>
+                  <value>10.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;10~20&quot;'>
+                  <value>11.0</value>
+                  <value>12.0</value>
+                  <value>13.0</value>
+                  <value>14.0</value>
+                  <value>14.5</value>
+                  <value>15.0</value>
+                  <value>16.0</value>
+                  <value>17.0</value>
+                  <value>18.0</value>
+                  <value>19.0</value>
+                  <value>20.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;20~30&quot;'>
+                  <value>20.5</value>
+                  <value>21.0</value>
+                  <value>22.0</value>
+                  <value>23.0</value>
+                  <value>23.5</value>
+                  <value>24.0</value>
+                  <value>24.5</value>
+                  <value>25.0</value>
+                  <value>26.0</value>
+                  <value>27.0</value>
+                  <value>28.0</value>
+                  <value>28.5</value>
+                  <value>29.0</value>
+                  <value>30.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;30~40&quot;'>
+                  <value>30.5</value>
+                  <value>31.0</value>
+                  <value>32.0</value>
+                  <value>32.5</value>
+                  <value>33.0</value>
+                  <value>34.0</value>
+                  <value>34.5</value>
+                  <value>35.0</value>
+                  <value>36.0</value>
+                  <value>36.5</value>
+                  <value>37.0</value>
+                  <value>38.0</value>
+                  <value>39.0</value>
+                  <value>40.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;40~50&quot;'>
+                  <value>40.5</value>
+                  <value>41.0</value>
+                  <value>42.0</value>
+                  <value>43.0</value>
+                  <value>44.0</value>
+                  <value>45.0</value>
+                  <value>45.5</value>
+                  <value>46.0</value>
+                  <value>47.0</value>
+                  <value>48.0</value>
+                  <value>49.0</value>
+                  <value>50.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;50~60&quot;'>
+                  <value>51.0</value>
+                  <value>52.0</value>
+                  <value>53.0</value>
+                  <value>54.0</value>
+                  <value>55.0</value>
+                  <value>55.5</value>
+                  <value>56.0</value>
+                  <value>57.0</value>
+                  <value>58.0</value>
+                  <value>59.0</value>
+                  <value>60.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;60&quot;'>
+                  <value>61.0</value>
+                  <value>62.0</value>
+                  <value>63.0</value>
+                  <value>64.0</value>
+                  <value>65.0</value>
+                  <value>66.0</value>
+                  <value>70.0</value>
+                  <value>70.5</value>
+                  <value>71.0</value>
+                  <value>74.0</value>
+                  <value>80.0</value>
+                </bin>
+              </calculation>
+            </column>
+            <column datatype='real' name='[Age]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column datatype='string' name='[Sex]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Survived]' role='measure' type='quantitative'>
+              <aliases>
+                <alias key='0' value='Not Survival' />
+                <alias key='1' value='Survival' />
+              </aliases>
+            </column>
+            <column-instance column='[Survived]' derivation='Count' name='[cnt:Survived:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Sex]' derivation='None' name='[none:Sex:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Survived]' derivation='None' name='[none:Survived:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:9]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]' ordering-type='Field' type='PctTotal' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]'>
+            <groupfilter function='level-members' level='[Age (group)]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0atlhxx18you8318wvf8z1qeay4l].[Exclusions (Age (group),Sex,Survived)]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='crossjoin'>
+                <groupfilter function='level-members' level='[Age (group)]' />
+                <groupfilter function='level-members' level='[none:Sex:nk]' />
+                <groupfilter function='level-members' level='[none:Survived:ok]' />
+              </groupfilter>
+              <groupfilter function='crossjoin'>
+                <groupfilter function='member' level='[Age (group)]' member='%null%' />
+                <groupfilter function='crossjoin'>
+                  <groupfilter function='union'>
+                    <groupfilter function='member' level='[none:Sex:nk]' member='&quot;female&quot;' />
+                    <groupfilter function='member' level='[none:Sex:nk]' member='&quot;male&quot;' />
+                  </groupfilter>
+                  <groupfilter function='union'>
+                    <groupfilter function='member' level='[none:Survived:ok]' member='0' />
+                    <groupfilter function='member' level='[none:Survived:ok]' member='1' />
+                  </groupfilter>
+                </groupfilter>
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <sort class='manual' column='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]' direction='ASC'>
+            <dictionary>
+              <bucket>1</bucket>
+              <bucket>0</bucket>
+            </dictionary>
+          </sort>
+          <slices>
+            <column>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</column>
+            <column>[federated.0atlhxx18you8318wvf8z1qeay4l].[Exclusions (Age (group),Sex,Survived)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:9]' value='p0%' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' />
+              <text column='[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:9]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok] * [federated.0atlhxx18you8318wvf8z1qeay4l].[cnt:Survived:qk])</rows>
+        <cols>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='性别生还'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='titanic-data' name='federated.0atlhxx18you8318wvf8z1qeay4l' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0atlhxx18you8318wvf8z1qeay4l'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column datatype='string' name='[Sex]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Survived]' role='measure' type='quantitative'>
+              <aliases>
+                <alias key='0' value='Not Survival' />
+                <alias key='1' value='Survival' />
+              </aliases>
+            </column>
+            <column-instance column='[Survived]' derivation='Count' name='[cnt:Survived:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Sex]' derivation='None' name='[none:Sex:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Survived]' derivation='None' name='[none:Survived:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Sex]' ordering-type='Field' type='PctTotal' />
+            </column-instance>
+          </datasource-dependencies>
+          <sort class='computed' column='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' direction='DESC' using='[federated.0atlhxx18you8318wvf8z1qeay4l].[cnt:Survived:qk]' />
+          <sort class='manual' column='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]' direction='ASC'>
+            <dictionary>
+              <bucket>1</bucket>
+              <bucket>0</bucket>
+            </dictionary>
+          </sort>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:2]' value='p0%' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' />
+              <text column='[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:2]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok] * [federated.0atlhxx18you8318wvf8z1qeay4l].[cnt:Survived:qk])</rows>
+        <cols>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='等级分布'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='titanic-data' name='federated.0atlhxx18you8318wvf8z1qeay4l' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0atlhxx18you8318wvf8z1qeay4l'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column datatype='integer' name='[Pclass]' role='measure' type='quantitative' />
+            <column-instance column='[Pclass]' derivation='None' name='[none:Pclass:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:8]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Pclass]' ordering-type='Field' type='PctTotal' />
+            </column-instance>
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:8]' value='p0%' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]' />
+              <text column='[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:8]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0atlhxx18you8318wvf8z1qeay4l].[sum:Number of Records:qk]</rows>
+        <cols>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='等级性别生还'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='titanic-data' name='federated.0atlhxx18you8318wvf8z1qeay4l' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0atlhxx18you8318wvf8z1qeay4l'>
+            <column datatype='string' name='[Age (group)]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[Age]' new-bin='true'>
+                <bin default-name='false' value='&quot;0~10&quot;'>
+                  <value>0.41999999999999998</value>
+                  <value>0.67000000000000004</value>
+                  <value>0.75</value>
+                  <value>0.82999999999999996</value>
+                  <value>0.92000000000000004</value>
+                  <value>1.0</value>
+                  <value>2.0</value>
+                  <value>3.0</value>
+                  <value>4.0</value>
+                  <value>5.0</value>
+                  <value>6.0</value>
+                  <value>7.0</value>
+                  <value>8.0</value>
+                  <value>9.0</value>
+                  <value>10.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;10~20&quot;'>
+                  <value>11.0</value>
+                  <value>12.0</value>
+                  <value>13.0</value>
+                  <value>14.0</value>
+                  <value>14.5</value>
+                  <value>15.0</value>
+                  <value>16.0</value>
+                  <value>17.0</value>
+                  <value>18.0</value>
+                  <value>19.0</value>
+                  <value>20.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;20~30&quot;'>
+                  <value>20.5</value>
+                  <value>21.0</value>
+                  <value>22.0</value>
+                  <value>23.0</value>
+                  <value>23.5</value>
+                  <value>24.0</value>
+                  <value>24.5</value>
+                  <value>25.0</value>
+                  <value>26.0</value>
+                  <value>27.0</value>
+                  <value>28.0</value>
+                  <value>28.5</value>
+                  <value>29.0</value>
+                  <value>30.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;30~40&quot;'>
+                  <value>30.5</value>
+                  <value>31.0</value>
+                  <value>32.0</value>
+                  <value>32.5</value>
+                  <value>33.0</value>
+                  <value>34.0</value>
+                  <value>34.5</value>
+                  <value>35.0</value>
+                  <value>36.0</value>
+                  <value>36.5</value>
+                  <value>37.0</value>
+                  <value>38.0</value>
+                  <value>39.0</value>
+                  <value>40.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;40~50&quot;'>
+                  <value>40.5</value>
+                  <value>41.0</value>
+                  <value>42.0</value>
+                  <value>43.0</value>
+                  <value>44.0</value>
+                  <value>45.0</value>
+                  <value>45.5</value>
+                  <value>46.0</value>
+                  <value>47.0</value>
+                  <value>48.0</value>
+                  <value>49.0</value>
+                  <value>50.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;50~60&quot;'>
+                  <value>51.0</value>
+                  <value>52.0</value>
+                  <value>53.0</value>
+                  <value>54.0</value>
+                  <value>55.0</value>
+                  <value>55.5</value>
+                  <value>56.0</value>
+                  <value>57.0</value>
+                  <value>58.0</value>
+                  <value>59.0</value>
+                  <value>60.0</value>
+                </bin>
+                <bin default-name='false' value='&quot;&gt;60&quot;'>
+                  <value>61.0</value>
+                  <value>62.0</value>
+                  <value>63.0</value>
+                  <value>64.0</value>
+                  <value>65.0</value>
+                  <value>66.0</value>
+                  <value>70.0</value>
+                  <value>70.5</value>
+                  <value>71.0</value>
+                  <value>74.0</value>
+                  <value>80.0</value>
+                </bin>
+              </calculation>
+            </column>
+            <column datatype='real' name='[Age]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column datatype='integer' name='[Pclass]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Sex]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Survived]' role='measure' type='quantitative'>
+              <aliases>
+                <alias key='0' value='Not Survival' />
+                <alias key='1' value='Survival' />
+              </aliases>
+            </column>
+            <column-instance column='[Survived]' derivation='Count' name='[cnt:Survived:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Pclass]' derivation='None' name='[none:Pclass:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Sex]' derivation='None' name='[none:Sex:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Survived]' derivation='None' name='[none:Survived:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Sex]' ordering-type='Field' type='PctTotal' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0atlhxx18you8318wvf8z1qeay4l].[Exclusions (Age (group),Pclass,Survived)]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='crossjoin'>
+                <groupfilter function='level-members' level='[Age (group)]' />
+                <groupfilter function='level-members' level='[none:Pclass:ok]' />
+                <groupfilter function='level-members' level='[none:Survived:ok]' />
+              </groupfilter>
+              <groupfilter function='reorder-dimensionality'>
+                <groupfilter function='crossjoin'>
+                  <groupfilter function='member' level='[Age (group)]' member='%null%' />
+                  <groupfilter function='crossjoin'>
+                    <groupfilter function='union'>
+                      <groupfilter function='member' level='[none:Survived:ok]' member='0' />
+                      <groupfilter function='member' level='[none:Survived:ok]' member='1' />
+                    </groupfilter>
+                    <groupfilter function='union'>
+                      <groupfilter function='member' level='[none:Pclass:ok]' member='1' />
+                      <groupfilter function='member' level='[none:Pclass:ok]' member='2' />
+                      <groupfilter function='member' level='[none:Pclass:ok]' member='3' />
+                    </groupfilter>
+                  </groupfilter>
+                </groupfilter>
+                <order>
+                  <hierarchy name='[Age (group)]' />
+                  <hierarchy name='[none:Pclass:ok]' />
+                  <hierarchy name='[none:Survived:ok]' />
+                </order>
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <sort class='manual' column='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]' direction='ASC'>
+            <dictionary>
+              <bucket>1</bucket>
+              <bucket>0</bucket>
+            </dictionary>
+          </sort>
+          <slices>
+            <column>[federated.0atlhxx18you8318wvf8z1qeay4l].[Exclusions (Age (group),Pclass,Survived)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:2]' value='p0%' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' />
+              <text column='[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:2]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok] * [federated.0atlhxx18you8318wvf8z1qeay4l].[cnt:Survived:qk])</rows>
+        <cols>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='等级生还'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='titanic-data' name='federated.0atlhxx18you8318wvf8z1qeay4l' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0atlhxx18you8318wvf8z1qeay4l'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column datatype='integer' name='[Pclass]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Survived]' role='measure' type='quantitative'>
+              <aliases>
+                <alias key='0' value='Not Survival' />
+                <alias key='1' value='Survival' />
+              </aliases>
+            </column>
+            <column-instance column='[Survived]' derivation='Count' name='[cnt:Survived:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Pclass]' derivation='None' name='[none:Pclass:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Survived]' derivation='None' name='[none:Survived:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk:8]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.0atlhxx18you8318wvf8z1qeay4l].[Pclass]' ordering-type='Field' type='PctTotal' />
+            </column-instance>
+          </datasource-dependencies>
+          <sort class='manual' column='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]' direction='ASC'>
+            <dictionary>
+              <bucket>1</bucket>
+              <bucket>0</bucket>
+            </dictionary>
+          </sort>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:8]' value='p0%' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]' />
+              <text column='[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:8]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok] * [federated.0atlhxx18you8318wvf8z1qeay4l].[cnt:Survived:qk])</rows>
+        <cols>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Dashboard 4'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones use-insets='false'>
+        <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='19' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='14' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+              <zone h='98000' id='11' param='horz' type='layout-flow' w='42700' x='800' y='1000'>
+                <zone h='98000' id='9' type='layout-basic' w='42700' x='800' y='1000'>
+                  <zone h='98000' id='5' param='horz' type='layout-flow' w='42700' x='800' y='1000'>
+                    <zone h='98000' id='3' type='layout-basic' w='42700' x='800' y='1000'>
+                      <zone h='61375' id='12' name='性别生还' w='42700' x='800' y='37625'>
+                        <zone-style>
+                          <format attr='border-color' value='#000000' />
+                          <format attr='border-style' value='none' />
+                          <format attr='border-width' value='0' />
+                          <format attr='margin' value='4' />
+                        </zone-style>
+                      </zone>
+                      <zone h='36625' id='17' name='性别分布' w='42700' x='800' y='1000'>
+                        <zone-style>
+                          <format attr='border-color' value='#000000' />
+                          <format attr='border-style' value='none' />
+                          <format attr='border-width' value='0' />
+                          <format attr='margin' value='4' />
+                        </zone-style>
+                      </zone>
+                    </zone>
+                  </zone>
+                </zone>
+              </zone>
+              <zone fixed-size='557' h='98000' id='13' is-fixed='true' param='vert' type='layout-flow' w='55700' x='43500' y='1000'>
+                <zone h='98000' id='16' name='性别年龄生还' w='55700' x='43500' y='1000'>
+                  <layout-cache cell-count-w='7' minheight='325' non-cell-size-w='140' type-h='scalable' type-w='cell' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='9750' id='20' name='性别分布' pane-specification-id='0' param='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' type='color' w='16600' x='36000' y='13000'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='4' />
+          </zone-style>
+        </zone>
+        <zone h='4750' id='21' name='性别分布' pane-specification-id='0' param='[federated.0atlhxx18you8318wvf8z1qeay4l].[sum:Number of Records:qk]' type='size' w='14000' x='21600' y='7875'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='4' />
+          </zone-style>
+        </zone>
+      </zones>
+    </dashboard>
+    <dashboard name='Dashboard 5'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones use-insets='false'>
+        <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='13' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='11' type='layout-basic' w='98400' x='800' y='1000'>
+              <zone h='98000' id='9' param='horz' type='layout-flow' w='49200' x='800' y='1000'>
+                <zone h='98000' id='5' param='horz' type='layout-flow' w='49200' x='800' y='1000'>
+                  <zone h='98000' id='3' type='layout-basic' w='49200' x='800' y='1000'>
+                    <zone h='49000' id='1' name='等级生还' w='49200' x='800' y='50000'>
+                      <zone-style>
+                        <format attr='border-color' value='#000000' />
+                        <format attr='border-style' value='none' />
+                        <format attr='border-width' value='0' />
+                        <format attr='margin' value='4' />
+                      </zone-style>
+                    </zone>
+                    <zone h='49000' id='7' name='等级分布' w='49200' x='800' y='1000'>
+                      <zone-style>
+                        <format attr='border-color' value='#000000' />
+                        <format attr='border-style' value='none' />
+                        <format attr='border-width' value='0' />
+                        <format attr='margin' value='4' />
+                      </zone-style>
+                    </zone>
+                  </zone>
+                </zone>
+              </zone>
+              <zone h='98000' id='10' name='等级性别生还' w='49200' x='50000' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='10375' id='6' name='等级生还' pane-specification-id='0' param='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]' type='color' w='15900' x='8900' y='10250'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='4' />
+          </zone-style>
+        </zone>
+        <zone h='9000' id='14' name='等级性别生还' pane-specification-id='0' param='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' type='color' w='15000' x='84000' y='11750'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='4' />
+          </zone-style>
+        </zone>
+      </zones>
+    </dashboard>
+    <dashboard name='Dashboard 6'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones use-insets='false'>
+        <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='19' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='17' type='layout-basic' w='98400' x='800' y='1000'>
+              <zone h='98000' id='14' param='horz' type='layout-flow' w='49200' x='800' y='1000'>
+                <zone h='98000' id='11' param='horz' type='layout-flow' w='49200' x='800' y='1000'>
+                  <zone h='98000' id='9' type='layout-basic' w='49200' x='800' y='1000'>
+                    <zone h='98000' id='5' param='horz' type='layout-flow' w='49200' x='800' y='1000'>
+                      <zone h='98000' id='3' type='layout-basic' w='49200' x='800' y='1000'>
+                        <zone h='49000' id='1' name='年龄分布' w='49200' x='800' y='1000'>
+                          <zone-style>
+                            <format attr='border-color' value='#000000' />
+                            <format attr='border-style' value='none' />
+                            <format attr='border-width' value='0' />
+                            <format attr='margin' value='4' />
+                          </zone-style>
+                        </zone>
+                        <zone h='49000' id='12' name='年龄生还' w='49200' x='800' y='50000'>
+                          <zone-style>
+                            <format attr='border-color' value='#000000' />
+                            <format attr='border-style' value='none' />
+                            <format attr='border-width' value='0' />
+                            <format attr='margin' value='4' />
+                          </zone-style>
+                        </zone>
+                      </zone>
+                    </zone>
+                  </zone>
+                </zone>
+              </zone>
+              <zone h='98000' id='16' name='年龄等级生还' w='49200' x='50000' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='11625' id='20' name='年龄等级生还' pane-specification-id='5' param='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]' type='color' w='5400' x='92400' y='10250'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='4' />
+          </zone-style>
+        </zone>
+      </zones>
+    </dashboard>
+    <dashboard name='Dashboard 7'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <datasources>
+        <datasource caption='titanic-data' name='federated.0atlhxx18you8318wvf8z1qeay4l' />
+      </datasources>
+      <datasource-dependencies datasource='federated.0atlhxx18you8318wvf8z1qeay4l'>
+        <column datatype='string' name='[Sex]' role='dimension' type='nominal' />
+        <column-instance column='[Sex]' derivation='None' name='[none:Sex:nk]' pivot='key' type='nominal' />
+      </datasource-dependencies>
+      <zones use-insets='false'>
+        <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='5' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='3' type='layout-basic' w='98400' x='800' y='1000'>
+              <zone h='98000' id='1' name='年龄性别等级分布' w='98400' x='800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='8000' id='7' name='年龄性别等级分布' pane-specification-id='1' param='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]' type='color' w='15800' x='20100' y='1375'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='4' />
+          </zone-style>
+        </zone>
+        <zone h='11125' id='6' name='年龄性别等级分布' param='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' type='filter' w='16800' x='82300' y='1000'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='4' />
+          </zone-style>
+        </zone>
+      </zones>
+    </dashboard>
+    <dashboard name='Story 1' type='storyboard'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>泰坦尼克乘客生还率分析</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style>
+        <style-rule element='story-point-caption'>
+          <format attr='width' value='516' />
+        </style-rule>
+      </style>
+      <size maxheight='964' maxwidth='1016' minheight='964' minwidth='1016' />
+      <zones use-insets='false'>
+        <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98340' id='1' param='vert' removable='false' type='layout-flow' w='98426' x='787' y='830'>
+            <zone h='3631' id='3' type='title' w='98426' x='787' y='830' />
+            <zone h='10477' id='4' is-fixed='true' paired-zone-id='5' removable='false' type='flipboard-nav' w='98426' x='787' y='4461' />
+            <zone h='84232' id='5' paired-zone-id='4' removable='false' type='flipboard' w='98426' x='787' y='14938'>
+              <flipboard active-id='4' nav-type='caption' show-nav-arrows='true'>
+                <story-points>
+                  <story-point caption='泰坦尼克号乘客中有65%为男性，35%为女性，生还者当中，女性占比68%。在不同的年龄段中，而女性在不同的年龄段中，生还者最多是20～30岁的女性' captured-sheet='Dashboard 4' id='1'>
+                    <capturedDeltas>
+                      <worksheet name='性别生还'>
+                        <highlight field='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]'>
+                          <color-one-way>
+                            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]</field>
+                          </color-one-way>
+                          <bucket-selection>
+                            <bucket>&quot;female&quot;</bucket>
+                          </bucket-selection>
+                        </highlight>
+                      </worksheet>
+                    </capturedDeltas>
+                  </story-point>
+                  <story-point caption='乘客中3等舱的乘客最多，占到55%，生还者中，舱位等级1的占比在所有舱位生还者中的40%，为最高的。而舱位等级1中，女性的占比高于男性。' captured-sheet='Dashboard 5' id='2' />
+                  <story-point caption='乘客中年龄在20～30岁的人数最多，生还者中，20～30岁的年龄段是整个年龄分布中最多的，而20～30岁的年龄段中，舱位等级3的生存率高于其他舱位等级。' captured-sheet='Dashboard 6' id='3'>
+                    <capturedDeltas>
+                      <worksheet name='年龄等级生还'>
+                        <filter class='categorical' column='[federated.0atlhxx18you8318wvf8z1qeay4l].[Exclusions (Age (group),Pclass,Survived)]'>
+                          <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+                            <groupfilter function='crossjoin'>
+                              <groupfilter function='level-members' level='[Age (group)]' />
+                              <groupfilter function='level-members' level='[none:Pclass:ok]' />
+                              <groupfilter function='level-members' level='[none:Survived:ok]' />
+                            </groupfilter>
+                            <groupfilter function='crossjoin'>
+                              <groupfilter function='member' level='[Age (group)]' member='%null%' />
+                              <groupfilter function='crossjoin'>
+                                <groupfilter function='member' level='[none:Pclass:ok]' member='1' />
+                                <groupfilter function='member' level='[none:Survived:ok]' member='1' />
+                              </groupfilter>
+                            </groupfilter>
+                          </groupfilter>
+                        </filter>
+                      </worksheet>
+                    </capturedDeltas>
+                  </story-point>
+                  <story-point caption='将这几个参数：性别，舱位等级，年龄放在一起看，就女性乘客，3等舱和年龄大的生存者更少，舱位等级高20～40岁的年龄范围更可能生存。男性乘客，3等舱和20～30岁的乘客生存者更少，1等舱者更可能生存。' captured-sheet='Dashboard 7' id='4'>
+                    <capturedDeltas>
+                      <worksheet name='年龄性别等级分布'>
+                        <filter class='categorical' column='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]'>
+                          <groupfilter function='member' level='[none:Sex:nk]' member='&quot;male&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+                        </filter>
+                      </worksheet>
+                    </capturedDeltas>
+                  </story-point>
+                </story-points>
+              </flipboard>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='dashboard' maximized='true' name='Story 1'>
+      <viewpoints />
+      <active id='-1' />
+    </window>
+    <window class='dashboard' hidden='true' name='Dashboard 4'>
+      <viewpoints>
+        <viewpoint name='性别分布'>
+          <highlight field='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]'>
+            <bucket-selection />
+          </highlight>
+        </viewpoint>
+        <viewpoint name='性别年龄生还'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='性别生还'>
+          <zoom type='entire-view' />
+          <highlight field='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]'>
+            <bucket-selection />
+          </highlight>
+          <floating-toolbar-visibility value='1' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+    </window>
+    <window class='dashboard' hidden='true' name='Dashboard 5'>
+      <viewpoints>
+        <viewpoint name='等级分布'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='等级性别生还'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='等级生还'>
+          <zoom type='entire-view' />
+          <highlight>
+            <color-one-way>
+              <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]</field>
+            </color-one-way>
+          </highlight>
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+    </window>
+    <window class='dashboard' hidden='true' name='Dashboard 6'>
+      <viewpoints>
+        <viewpoint name='年龄分布'>
+          <zoom type='entire-view' />
+          <highlight>
+            <color-one-way>
+              <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</field>
+            </color-one-way>
+          </highlight>
+        </viewpoint>
+        <viewpoint name='年龄生还'>
+          <zoom type='entire-view' />
+          <highlight field='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]'>
+            <bucket-selection />
+          </highlight>
+        </viewpoint>
+        <viewpoint name='年龄等级生还'>
+          <zoom type='entire-view' />
+          <highlight field='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]'>
+            <bucket-selection />
+          </highlight>
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+    </window>
+    <window class='dashboard' hidden='true' name='Dashboard 7'>
+      <viewpoints>
+        <viewpoint name='年龄性别等级分布'>
+          <zoom type='entire-view' />
+          <highlight field='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]'>
+            <bucket-selection />
+          </highlight>
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+    </window>
+    <window class='worksheet' hidden='true' name='年龄分布'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <selection-collection>
+          <tuple-selection>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[sum:Number of Records:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[sum:Number of Records:qk]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:9]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>%null%</value>
+                <value>177</value>
+                <value>0.19865319865319866</value>
+              </tuple>
+            </tuple-reference>
+          </tuple-selection>
+        </selection-collection>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' hidden='true' name='年龄性别等级分布'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' type='filter' />
+            <card pane-specification-id='1' param='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <selection-collection>
+          <tuple-selection>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]</field>
+                    <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]</field>
+                    <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[cnt:Survived:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[cnt:Survived:qk]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:9]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>%null%</value>
+                <value>5</value>
+                <value>1</value>
+                <value>1</value>
+                <value>0.1111111111111111</value>
+              </tuple>
+            </tuple-reference>
+          </tuple-selection>
+        </selection-collection>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</field>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Embarked:nk]</field>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Parch:qk]</field>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]</field>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]</field>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' hidden='true' name='年龄生还'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <selection-collection>
+          <tuple-selection>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[cnt:Survived:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[cnt:Survived:qk]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:11]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>%null%</value>
+                <value>125</value>
+                <value>0</value>
+                <value>1.0</value>
+              </tuple>
+            </tuple-reference>
+          </tuple-selection>
+        </selection-collection>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</field>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Age:qk]</field>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' hidden='true' name='年龄等级生还'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='5' param='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <selection-collection>
+          <tuple-selection>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[sum:Pclass:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[sum:Pclass:qk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>%null%</value>
+                <value>460</value>
+              </tuple>
+            </tuple-reference>
+          </tuple-selection>
+        </selection-collection>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]</field>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]</field>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' hidden='true' name='性别分布'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' type='color' />
+            <card pane-specification-id='0' param='[federated.0atlhxx18you8318wvf8z1qeay4l].[sum:Number of Records:qk]' type='size' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' hidden='true' name='性别年龄生还'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]' type='filter' />
+            <card pane-specification-id='0' param='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <selection-collection>
+          <tuple-selection>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]</field>
+                    <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[cnt:Survived:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[cnt:Survived:qk]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:11]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>%null%</value>
+                <value>17</value>
+                <value>&quot;female&quot;</value>
+                <value>0</value>
+                <value>1.0</value>
+              </tuple>
+            </tuple-reference>
+          </tuple-selection>
+        </selection-collection>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</field>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]</field>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' hidden='true' name='性别生还'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]</field>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]</field>
+          </color-one-way>
+        </highlight>
+        <floating-toolbar-visibility value='1' />
+      </viewpoint>
+    </window>
+    <window class='worksheet' hidden='true' name='等级分布'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' hidden='true' name='等级性别生还'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <selection-collection>
+          <tuple-selection>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]</field>
+                    <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[cnt:Survived:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[Age (group)]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[cnt:Survived:qk]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]</field>
+                  <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[pcto:sum:Number of Records:qk:11]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>%null%</value>
+                <value>16</value>
+                <value>1</value>
+                <value>0</value>
+                <value>1.0</value>
+              </tuple>
+            </tuple-reference>
+          </tuple-selection>
+        </selection-collection>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]</field>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Sex:nk]</field>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' hidden='true' name='等级生还'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Pclass:ok]</field>
+            <field>[federated.0atlhxx18you8318wvf8z1qeay4l].[none:Survived:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Story 1' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>

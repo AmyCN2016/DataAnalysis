@@ -1,0 +1,344 @@
+Prosper贷款 by Amy Tao(陶蕾)
+========================================================
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, packages}
+# 加载你最终使用的所有组件
+# 在这个代码块的分析中。
+
+# 注意，在这个代码块中，将参数 "echo" 设为假。
+# This prevents the code from displaying in the knitted HTML output.这可以避免代码混入 HTML 输出显示。
+# 应当在文件中，对所有代码块设为 echo=FALSE 。
+
+library(ggplot2)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, Load_the_Data}
+# 加载数据
+setwd('~/Desktop/EDA/EDAProsper')
+Sys.setlocale("LC_ALL",'en_US.UTF-8')
+pld<-read.csv('prosperloanData.csv')
+```
+
+# 单变量绘图选择
+```{r echo=FALSE, message=FALSE, warning=FALSE, pld_length}
+length(pld)
+```
+数据集共有81个变量
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, loanstatus_distribution}
+summary(pld$LoanStatus)
+qplot(x=pld$LoanStatus,data=pld) + 
+  theme(axis.text.x = element_text(angle = 90, hjust=1))
+```
+
+LoanStatus的分布可以看出借款项目主要集中在四种状态：chargedoff, Completed, Current & Defaulted.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, Term_distribution}
+summary(pld$Term)
+qplot(x=pld$Term,data=pld,binwidth=1) + 
+  theme(text = element_text(family = "STKaiti",size=12))+
+  scale_x_continuous(breaks = seq(10,60,5))
+```
+
+借款周期Term是离散数据，共有三个值：12，36，60，其中借款天数在36天的借款记录是最多的。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, BorrowerAPR_distribution}
+summary(pld$BorrowerAPR)
+qplot(pld$BorrowerAPR,data=pld)
+```
+
+借款年度复利利息BorrowerAPR的范围在0.05～0.4之间。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, EstimatedEffectiveYield_distribution}
+qplot(pld$EstimatedEffectiveYield,data=pld)
+```
+
+EstimatedEffectiveYield是贷款人的收益，收益范围在0.05～0.3的范围内。但是有离群值显示收益为负，将进一步分析。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, EstimatedLoss_distribution}
+summary(pld$EstimatedLoss)
+qplot(pld$EstimatedLoss,data=pld,binwidth=0.005)
+```
+
+EstimatedLoss分布图是向右倾斜的，采用log去掉长尾。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, EstimatedLoss_log_distribution}
+qplot(x=log10(pld$EstimatedLoss),data=pld)
+```
+
+EstimatedLoss是在chargeoff上的主体资金的损失，这个数据在右侧倾斜，通过log将数据进行转换后接近正态分布。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, ProsperRating_distribution}
+summary(pld$ProsperRating..numeric.)
+qplot(pld$ProsperRating..numeric.,data=pld) + 
+  scale_x_continuous(breaks=seq(0,7,1))
+```
+
+ProsperRating的分布中，评分在3～5分之间是最多的，最低分1和最高分7较少。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, ProsperRating_Alpha_distribution}
+rating <-c ("HR","E","D","C","B","A","AA")
+ggplot(pld,aes(pld$ProsperRating..Alpha.)) +
+  geom_bar() + 
+  ggtitle('Prosper Rating Distribution')
+```
+
+ProsperRating(alpha)的分布与ProsperRating(Numeric)的结果类似，评分最高AA和最低HR较少。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, ProsperScore_distribution}
+summary(pld$ProsperScore)
+qplot(pld$ProsperScore,data=pld) + 
+  scale_x_continuous(breaks=seq(1,10,1))
+```
+
+ProsperScore是客户风险评分，大部分客户的风险评分中等在4～8之间，其中1为风险最大，值较小。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, LP_InterestandFees_distribution}
+qplot(pld$LP_InterestandFees,data=pld)
+```
+
+LP_InterestandFees向右倾斜，将用log去掉长尾。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, LP_InterestandFees_distribution_log}
+qplot(x=log10(pld$LP_InterestandFees),data=pld)
+```
+
+LP_InterestandFees通过log去掉长尾，结果接近正态分布。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, LP_ServiceFees_distribution}
+qplot(pld$LP_ServiceFees,data=pld)
+```
+
+LP_ServieFees绝大多数都在200元以下。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, Servicerate_distribution}
+summary(pld$BorrowerRate-pld$LenderYield)
+qplot(x=(pld$BorrowerRate-pld$LenderYield), data=pld, 
+      xlab = 'Service Rate', binwidth=0.001) + 
+  scale_x_continuous(breaks = seq(0,0.055,0.005))
+```
+
+Service rate是BorrowerRate和LenderYield的差值，service rate是平台跟贷款人收取的，可以看到平台收费费率绝大多数在0.01。
+
+# 单变量分析
+
+### 你的数据集结构是什么？
+这个数据集共有81个变量。81个变量中，分组大致如下：
+
+1.借贷平台借款人，贷款人，平台相关费率信息
+
+2.借款人信息：雇佣情况，信用情况，收入情况。
+
+3.Prosper历史借款相关信息。
+
+4.chargeoff前借还款及费率信息
+。
+5.贷款人信息。
+我将关注借款平台相关费率信息。
+
+其他观察：
+
+1. Term呈离散分布，主要有12，36，60三种选择。借款36天的人是最多的。
+
+2. ProsperRating共分7个档次，其中4档最多，7档最少
+
+3. BorrowerAPR的范围集中在0.05～0.4,小于0.05的值也有，但是很少。
+
+4. EstimatedEffectiveYield的范围集中在0.05～0.3
+
+5. EstimatedLoss的范围集中在0～0.2，有离散值在0.25和0.35附近。
+
+### 你的数据集内感兴趣的主要特性有哪些？
+因为想要了解借款平台的费率信息，我感兴趣的主要特性是借款人的BorrowerAPR/BorrowerRate,贷款人的收益情况EstimatedEffectiveYield和EstimatedLoss，平台的收益情况Service rate。
+
+### 你认为数据集内哪些其他特征可以帮助你探索兴趣特点？
+数据集中的Term, LoanStatus, ProsperRating，ProsperScore会对数据探索有帮助。
+
+### 根据数据集内已有变量，你是否创建了任何新变量？
+我创建了一个变量：Service rate = BorrowerRate-LenderYield, 从直方图可以看出，绝大多数贷款的service rate是0.01.
+EstimatedReturn和BorrowerRate比例，可以看到对于大部分的借款来说，贷款人的收益占到借款人支付利息的
+
+### 在已经探究的特性中，是否存在任何异常分布？你是否对数据进行一些操作，如清洁、调整或改变数据的形式？如果是，你为什么会这样做？
+EstimatedLoss的分布是向右倾斜的，使用log将这个特征的分布转换。可以看到转换后的分布接近于正态分布。
+LP_InterestandFees的分布是向右倾斜的，使用log将这个特征的分布转换。可以看到转换后的分布接近于正态分布。
+
+
+
+# 双变量绘图选择
+
+```{r echo=FALSE, message=FALSE, fig.height=6, fig.width=6, warning=FALSE, group_one_data_correlation}
+library(GGally)
+set.seed(100)
+pld_subset<-pld[,c("BorrowerAPR","EstimatedEffectiveYield","EstimatedLoss","ProsperRating..numeric.","ProsperScore")]
+names(pld_subset)
+ggpairs(pld_subset[sample.int(nrow(pld_subset),1000),])
+```
+
+查看数据分组第一组：借贷平台借款人，贷款人，平台相关费率信息的数据相关度，寻找下一步分析的方向。结果发现BorrowerAPR和EstimatedLoss的相关度达0.954,为什么EstimatedLoss即因chargedoff损失的主体资金与APR有关？
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, APR_Loss_analysis}
+cor.test(pld$BorrowerAPR,pld$EstimatedLoss)
+ggplot(aes(x=pld$BorrowerAPR,y=pld$EstimatedLoss),data=pld) + 
+  geom_jitter(alpha=1/3)
+```
+
+EstimatedLoss和APR主体是线性相关的，但是散点图中有很明显的横条，见在接下里的分析中尝试查看横条的形成原因。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, Loss_boxplot_with_Rating}
+qplot(x=pld$ProsperRating..Alpha., y=pld$EstimatedLoss,data=pld, geom='boxplot') + 
+  theme(text = element_text(family = "STKaiti",size=8))
+```
+
+EstimatedLoss和ProsperRating的boxplot中，可以看到AA即评级最高者，EstimatedLoss最低，而HR即评级最低者，EstimatedLoss最高，而且有超出最高值很多的离群值。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, APR_boxplot_with_Rating}
+ggplot(aes(x=pld$ProsperRating..Alpha.,y=pld$BorrowerAPR),data=pld) + 
+  geom_boxplot()
+```
+
+APR和ProsperRating的boxplot分析中可以看到评级最高者APR低，反之亦然。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, yield_APR}
+ggplot(aes(x=pld$ProsperRating..Alpha.,y=pld$EstimatedEffectiveYield),data=pld) + 
+  geom_boxplot()
+```
+
+从以上boxplot的分析结果可以看到，EstimatedEffectiveYield在大部分评级下都大于0，只有在评级HR时，有很多的离群值在最小值之下。说明HR评级的用户还款的问题让EstimatedEffectiveYield的值偏低。
+
+```{r echo=FALSE, message=FALSE, fig.height=5, fig.width=5, warning=FALSE, correlation_analyis_in_LP_dataset}
+library(GGally)
+set.seed(100)
+pld_subset<-pld[,c("LP_CustomerPayments","LP_ServiceFees","LP_InterestandFees","LP_GrossPrincipalLoss")]
+names(pld_subset)
+ggpairs(pld_subset[sample.int(nrow(pld_subset),1000),])
+```
+
+分析第四个分组：chargeoff前借还款及费率信息数据的相关性。发现LP_ServiceFee和LP_InterestandFees的相关性达到0.851.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, servicefee_interestfee_analysis}
+cor.test(pld$LP_InterestandFees,pld$LP_ServiceFees)
+ggplot(aes(x=pld$LP_ServiceFees,y=pld$LP_InterestandFees),data=pld) + 
+  geom_point()
+```
+
+LP_ServiceFee和LP_InterestandFees的散点图体现了这种相关。相关系数为-0.86，为负相关，因为Service fees在数据中显示为负值。
+
+# 双变量分析
+
+### 探讨你在这部分探究中观察到的一些关系。这些感兴趣的特性与数据集内其他特性有什么区别？
+我观察到BorrowerAPR和EstimatedLoss的相关性很高，有0.954。特别的是，散点图中EstimatedLoss有一条条明显的横线（EstimatedLoss在0.1，0.15，0.2的位置）与BorrowerAPR没有线性相关，我将对这个数据进行进一步探索。
+
+### 你是否观察到主要特性与其他特性之间的有趣关系？
+1.ProsperRating评分越高EstimatedLoss率越低，从箱线图可以看到HR的EstimatedLoss最高，而且有很高的离群值。
+
+2.ProsperRating与BorrowerAPR,可以看到Borrower interest rate是根据借款人的评分等级浮动的，评分等级越高，interest rate越低。
+
+3.LP_ServiceFees和LP_InterestandFees的相关系数有0.851，为强相关，可以看到当借款人支付了借款利率，Prosper平台能更有效地收取service rate.
+
+### 你发现最强的关系是什么？
+我发现最强的关系是BorrowerAPR和LenderYield之间的关系，有0.99.这符合常识，借款人支付的利息越多（BorrowerAPR是利息年度百分率，复利利息），贷款人得到的yield越多。
+
+
+# 多变量绘图选择
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, APR_loss_ProsperScore}
+ggplot(aes(x=pld$BorrowerAPR,y=pld$EstimatedLoss),data=pld) + 
+  geom_point(aes(color=pld$ProsperScore))
+```
+
+BorrowerAPR和EstimatedLoss散点图中加入ProsperScore(即customer risk score),可以看到ProsperScore的值越低，即Prosper平台定义为高风险的用户，损失会更高——甚至有0.3之上的值。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, APR_Loss_Rating}
+pld$ProsperRating..Alpha.<-factor(pld$ProsperRating..Alpha,
+         levels = c('AA', 'A', 'B', 'C', 'D', 'E', 'HR', 'NA'))
+ggplot(aes(x=pld$BorrowerAPR,y=pld$EstimatedLoss),data=pld) + 
+  geom_point(aes(color=pld$ProsperRating..Alpha.))
+```
+
+BorrowerAPR和EstimatedLoss散点图中加入ProsperRating,可以看到ProsperRating等级越高，对应的APR越低，同时产生的loss也越少。0.15以上的loss大部分是由HR评级的借款人产生的。
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, APR_loss_loanstatus}
+ggplot(aes(x=pld$BorrowerAPR,y=pld$EstimatedLoss),data=pld) + 
+  geom_point(aes(color=pld$LoanStatus),
+             alpha=1/3)
+```
+
+BorrowerAPR和EstimatedLoss散点图中加入loanstatus,可以看到loanstatus是chargedoff和completed的选项形成了散点图中的横条。因为只有一笔贷款完成了或是被定义为chargedoff，Prosper平台才会计入loss
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, servicefee_interestfee_Rating}
+pld$ProsperRating..Alpha.<-factor(pld$ProsperRating..Alpha,
+         levels = c('AA', 'A', 'B', 'C', 'D', 'E', 'HR', 'NA'))
+ggplot(aes(x=pld$LP_ServiceFees,y=pld$LP_InterestandFees),data=pld) +
+  geom_point(aes(color=pld$ProsperRating..Alpha.))
+```
+
+LP_ServiceFees和LP_InterestandFees中加入ProsperRating(Alpha)特性，发现评级越高的颜色区域，对应的interest fee越低，这数据的分析结论与之前在BorrowerAPR和ProsperRating(Alpha)的分析结果是一致的。
+
+# 多变量分析
+
+###  探讨你在这部分探究中观察到的一些关系。通过观察感兴趣的特性，是否存在相互促进的特性？
+1. 在BorrowerAPR和EstimatedLoss中加入loanstatus特性，可以观察到BorrowerAPR和EstimatedLoss散点图中的横条来自于Completed和chargedoff情形，即贷款条目关闭后确定的loss。
+
+2. 在LP_ServiceFees和LP_InterestandFees中加入ProsperRating(Alpha)特性，发现评级越高的颜色区域，对应的interest fee越低，这数据的分析结论与之前在BorrowerAPR和ProsperRating(Alpha)的分析结果是一致的。
+
+### 这些特性之间是否存在有趣或惊人的联系呢？
+BorrowerAPR和EstimatedLoss加入ProsperRating(Alpha)特性，会发现评分越低的用户APR越高，即借款的利率越高，出现逾期，就会出现无法还款的情况。
+
+### 选项：你是否创建过数据集的任何模型？讨论你模型的优缺点。
+
+------
+
+# 定稿图与总结
+
+### 绘图一
+```{r echo=FALSE, message=FALSE, warning=FALSE, one_feature_servicerate}
+summary(pld$BorrowerRate-pld$LenderYield)
+qplot(x=(pld$BorrowerRate-pld$LenderYield),data=pld,xlab = 'Service Rate',
+      ylab = 'number of records', main='Prosper Service Rate',
+      binwidth=0.001)+
+  scale_x_continuous(breaks = seq(0,0.055,0.005))
+```
+
+### 描述一
+Prosper作为一个中间人连接借款人和贷款人，所收取的Service Rate绝大多数在0.01.
+
+### 绘图二
+```{r echo=FALSE, message=FALSE, warning=FALSE, two_features_APR_Loss}
+ggplot(aes(x=pld$BorrowerAPR,y=pld$EstimatedLoss),data=pld) + 
+  geom_jitter(alpha=1/10)+
+  ggtitle('BorrowerAPR/EstimatedLoss')
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, two_features_APR_boxplot}
+rating <-c ("HR","E","D","C","B","A","AA")
+ggplot(aes(x=pld$ProsperRating..Alpha.,y=pld$BorrowerAPR),data=pld) + 
+  geom_boxplot(fill=I('#F79420'))+
+  scale_x_discrete(limits=rating)+
+  ggtitle('BorrowerAPR by ProsperRating')
+```
+
+### 描述二
+BorrowerAPR和EstimatedLoss线性相关，而BorrowerAPR根据Prosper的评级，分值高则interest rate低，反之亦然。
+
+### 绘图三
+```{r echo=FALSE, message=FALSE, warning=FALSE, three_features_APR_Loss_loanstatus}
+ggplot(aes(x=pld$BorrowerAPR,y=pld$EstimatedLoss),data=pld) + 
+  geom_point(aes(color=pld$LoanStatus),alpha=1/3)+
+  ggtitle('EstimatedLoss by BorrowerAPR and LoanStatus')
+```
+
+### 描述三
+BorrowerAPR和EstimatedLoss大体线性相关，但在散点图中出现了很多横条，加入LoanStatus特性，发现这些横条是数据集中LoanStatus为Completed（少部分为chargedoff),即在这两种情况下，Prosper会统计loss进行计算。
+
+# 反思
+遇到的困难：
+
+1. 一开始做分析时，未绘制一幅数据探索的地图，用来记录分析过程，不如哪条路已经走过了，结果如何。同时没有将数据做大致的分组（组内的数据是具有相关性的），而是从81个变量中随意挑选特性开始进行分析。基于以上两个因素，分析过程的推进很困难，做了很多组（单一变量，双变量，多变量）分析，但分析的结果是碎片，没有形成系统，或逐步深入层层推进，或相互验证。
+
+2. 对于这组跟借贷款相关的数据集中，有很多的专业术语，分析需要建立在对专业术语有理解的情形下才能进行，在一开始的分析中，我试图避开哪些不理解的特性，只对理解的特性进行分析，这也是花了很长时间没有找到那个可以深入分析的特性。
+
+取得的成功：
+基于以上的经验，我绘制了分析的地图，记录分析过的参数及结果，来辅助分析过程，避免分析到了一个阶段，忘记了为什么要这样做，以前都做过哪些分析。同时，在做了多组变量分析后，对每一组都尝试增加其他变量查看结果，带着问题深入分析过程。
+
+针对本项目为未来工作提供了至少一个提议或问题：
+这个项目让我在在数据探索结果出来后的进一步优化，细化以更好的了解数据的规律和结构上理解更加深刻。这个项目中，我的一些分析没有足够深入和细致，比如ProsperRating的排序，做过调整后对于对数字的理解将更加清晰。
